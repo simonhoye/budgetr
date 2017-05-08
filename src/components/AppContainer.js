@@ -32,7 +32,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-    console.log('appstate:',state);
     return {
         subscriptions: state.subscriptions
     };
