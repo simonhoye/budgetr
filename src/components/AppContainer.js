@@ -1,38 +1,40 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { ActionCreators } from '../actions';
+import AppWithNavigationState from '../navigators/AppNavigator';
 
 import {
-  Text,
-  View
+    Text,
+    View
 } from 'react-native';
 
 class AppContainer extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            subscriptions: Object.assign({},this.props.subscriptions)
-        };
     }
     render() {
         return (
-            <View>
-                <Text>
-                    Welcome to BudgetR!
-                </Text>
-            </View>
+            <AppWithNavigationState />
         )
     }
 }
 
+AppContainer.propTypes = {
+    subscriptions: PropTypes.array.isRequired,
+    actions: PropTypes.object.isRequired
+};
+
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators(ActionCreators, dispatch);
+    return {
+        actions: bindActionCreators(ActionCreators, dispatch)
+    }
 }
 
 function mapStateToProps(state) {
+    console.log('appstate:',state);
     return {
-        subscriptions: Object.assign({}, state.subscriptions)
+        subscriptions: state.subscriptions
     };
 }
 
