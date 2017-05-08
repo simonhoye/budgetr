@@ -13,10 +13,10 @@ const initialNavState = AppNavigator.router.getStateForAction(secondAction, temp
 function nav(state = initialNavState, action) {
     let nextState;
     switch (action.type) {
-        case types.ROUTE_LOGIN:
+        case types.LOGIN_USER:
             nextState = AppNavigator.router.getStateForAction(NavigationActions.back(), state);
             break;
-        case types.ROUTE_LOGOUT:
+        case types.LOGOUT_USER:
             nextState = AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: types.ROUTE_LOGIN }), state);
             break;
         default:

@@ -8,9 +8,9 @@ const initialAuthState = { isLoggedIn: false };
 
 function auth(state = initialAuthState, action) {
     switch (action.type) {
-        case types.ROUTE_LOGIN:
+        case types.LOGIN_USER:
             return { ...state, isLoggedIn: true };
-        case types.ROUTE_LOGOUT:
+        case types.LOGOUT_USER:
             return { ...state, isLoggedIn: false };
         default:
             return state;

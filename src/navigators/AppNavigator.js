@@ -23,7 +23,6 @@ AppWithNavigationState.propTypes = {
 
 
 function mapStateToProps(state) {
-    // console.log('state:',state);
     return {
         nav: state.nav
     }

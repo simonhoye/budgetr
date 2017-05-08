@@ -1,3 +1,4 @@
+import * as types from '../actions/actionTypes';
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'react-native';
@@ -21,8 +22,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    logout: () => dispatch({ type: 'ROUTE_LOGOUT' }),
-    login: () => dispatch(NavigationActions.navigate({ routeName: 'ROUTE_LOGIN' })),
+    logout: () => dispatch({ type: types.LOGOUT_USER }),
+    login: () => dispatch(NavigationActions.navigate({ routeName: types.ROUTE_LOGIN })),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthButton);

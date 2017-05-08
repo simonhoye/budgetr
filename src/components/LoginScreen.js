@@ -1,3 +1,4 @@
+import * as types from '../actions/actionTypes';
 import React, { PropTypes } from 'react';
 import {
     Button,
@@ -29,7 +30,7 @@ const LoginScreen = ({ navigation }) => (
             This is great
         </Text>
         <Button
-            onPress={() => navigation.dispatch({ type: 'ROUTE_LOGIN' })}
+            onPress={() => navigation.dispatch({ type: types.LOGIN_USER })}
             title="Log in"
         />
     </View>
