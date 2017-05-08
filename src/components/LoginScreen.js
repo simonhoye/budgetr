@@ -1,19 +1,46 @@
-import React, { Component } from 'react';
-
+import React, { PropTypes } from 'react';
 import {
-    View,
+    Button,
+    StyleSheet,
     Text,
+    View,
 } from 'react-native';
 
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
+    },
+    welcome: {
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 10,
+    },
+});
 
-class LoginScreen extends Component {
-    render() {
-        return (
-            <View style={{marginTop: 20}}>
-                <Text>Login Screen</Text>
-            </View>
-        )
-    }
-}
+const LoginScreen = ({ navigation }) => (
+    <View style={styles.container}>
+        <Text style={styles.welcome}>
+            Screen A
+        </Text>
+        <Text style={styles.instructions}>
+            This is great
+        </Text>
+        <Button
+            onPress={() => navigation.dispatch({ type: 'ROUTE_LOGIN' })}
+            title="Log in"
+        />
+    </View>
+);
+
+LoginScreen.propTypes = {
+    navigation: PropTypes.object.isRequired,
+};
+
+LoginScreen.navigationOptions = {
+    title: 'Log In',
+};
 
 export default LoginScreen;

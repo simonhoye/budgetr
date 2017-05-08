@@ -1,46 +1,27 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { ActionCreators } from '../actions';
-import { NavigationActions } from 'react-navigation';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 
-import {
-    View,
-    Text,
-    TouchableHighlight
-} from 'react-native';
+import LoginStatusMessage from './LoginStatusMessage';
+import AuthButton from './AuthButton';
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+});
 
-class MainScreen extends Component {
-    constructor(props) {
-        super(props);
-        console.log(this.props.actions);
-    }
-    handleClick() {
-        return this.props.navigateToProfilePage();
-    }
+const MainScreen = () => (
+  <View style={styles.container}>
+    <LoginStatusMessage />
+    <AuthButton />
+  </View>
+);
 
-    render() {
-        return (
-            <View style={{marginTop: 20}}>
-                <Text>Main Screen</Text>
-                <TouchableHighlight onPress={ () => this.handleClick() }>
-                    <Text>Touch Me</Text>
-                </TouchableHighlight>
-            </View>
-        )
-    }
-}
+MainScreen.navigationOptions = {
+  title: 'Home Screen',
+};
 
-function mapStateToProps(state) {
-    return state;
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators(ActionCreators, dispatch),
-        navigateToProfilePage: () => dispatch(NavigationActions.navigate({ routeName: 'ROUTE_PROFILE' })),
-    }
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(MainScreen);
+export default MainScreen;
