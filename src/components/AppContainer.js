@@ -26,7 +26,9 @@ class AppContainer extends Component {
     }
     render() {
         return (
-            <AppWithNavigationState />
+            <View style={{ flex: 1 }}>
+                <AppWithNavigationState />
+            </View>
         )
     }
 }
